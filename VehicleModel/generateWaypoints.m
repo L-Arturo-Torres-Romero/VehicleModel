@@ -45,7 +45,8 @@ function [new_X, new_Y, new_Vx, new_Psi] = ConstantSteeringWheelAngleTest(prev_s
     
     % Calculate the new orientation
     new_Psi = prev_Psi + steering_angle;
-    
+    new_Psi = wrapTo2Pi(new_Psi);
+
     % Calculate the new coordinates
     new_X = prev_X + space * cos(new_Psi);
     new_Y = prev_Y + space * sin(new_Psi);
@@ -71,7 +72,8 @@ function [new_X, new_Y, new_Vx, new_Psi] = ConstantSpeedVariableRadiusTest(prev_
     
     % Calculate the new orientation
     new_Psi = prev_Psi + (constant_speed / radius) * space;
-    
+    new_Psi = wrapTo2Pi(new_Psi);
+
     % Calculate the new coordinates
     new_X = prev_X + space * cos(new_Psi);
     new_Y = prev_Y + space * sin(new_Psi);
@@ -79,6 +81,3 @@ function [new_X, new_Y, new_Vx, new_Psi] = ConstantSpeedVariableRadiusTest(prev_
     % Speed remains constant
     new_Vx = constant_speed;
 end
-
-
-
