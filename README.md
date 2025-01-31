@@ -3,10 +3,16 @@ Project Description.
 This project is a MATLAB/Simulink model that simulates the longitudinal and lateral dynamics of a vehicle, incorporating electric motors as the main actuators. The goal is to provide a flexible and modular environment for studying and developing controllers for electric and autonomous vehicles.
 
 
-<div style="display: flex; gap: 10px;">
-<img src="./docs/images/lon1.png" alt="Longitudinal dynamics" width="300"/>
-<img src="./docs/images/Lat1.png" alt="Lateral dynamics" height="187"/>
-</div>
+<table style="width:100%;">
+    <tr>
+        <td style="width:56%;">
+            <img src="./docs/images/lon1.png" alt="Imagen 1" style="width:100%;">
+        </td>
+        <td style="width:44%;">
+            <img src="./docs/images/Lat1.png" alt="Imagen 2" style="width:100%;">
+        </td>
+    </tr>
+</table>
 
 
 The model offers the following features:
