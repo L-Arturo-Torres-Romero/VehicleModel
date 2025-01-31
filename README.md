@@ -20,7 +20,7 @@ you can define your trajectory and see how your vehicle follows your road.
  <img src="./docs/images/trajectory.png" alt="Trajectory" style="width:100%;">
 
 
- you can see the internal performance of the lateral an logitudynal dynamics.
+ you can see the internal performance of the lateral and longitudinal dynamics.
   <img src="./docs/images/lateralDyna.png" alt="InternalPerformance" style="width:100%;">
 
 
