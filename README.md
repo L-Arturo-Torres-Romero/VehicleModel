@@ -5,7 +5,7 @@ This project is a MATLAB/Simulink model that simulates the longitudinal and late
 
 <div style="display: flex; gap: 10px;">
 <img src="./docs/images/lon1.png" alt="Longitudinal dynamics" width="300"/>
-<img src="./docs/images/lat1.png" alt="Lateral dynamics" height="187"/>
+<img src="./docs/images/Lat1.png" alt="Lateral dynamics" height="187"/>
 </div>
 
 
