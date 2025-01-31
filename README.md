@@ -5,11 +5,11 @@ This project is a MATLAB/Simulink model that simulates the longitudinal and late
 
 <table style="width:100%;">
     <tr>
-        <td style="width:56%;">
-            <img src="./docs/images/lon1.png" alt="Imagen 1" style="width:100%;">
+        <td style="width:50%;">
+            <img src="./docs/images/lon1.png" alt="Imagen 1" style="width:56%;">
         </td>
-        <td style="width:44%;">
-            <img src="./docs/images/Lat1.png" alt="Imagen 2" style="width:100%;">
+        <td style="width:50%;">
+            <img src="./docs/images/Lat1.png" alt="Imagen 2" style="width:44%;">
         </td>
     </tr>
 </table>
