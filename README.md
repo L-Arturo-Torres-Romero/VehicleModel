@@ -22,3 +22,7 @@ Applications
 Evaluation of control strategies for electric and autonomous vehicles.
 Simulations of urban and highway scenarios to validate controllers.
 Academic development in vehicle dynamics and control.
+
+
+
+you can visit my personal homepage for more info at [Luis Arturo Torres](https://l-arturo-torres-romero.github.io)
