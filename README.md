@@ -14,7 +14,27 @@ Testing of Custom Controllers:
 
 Steering (Lateral Control): Users can implement and test steering control algorithms, such as PID, MPC, or AI-based techniques.
 Power (Longitudinal Control): It is possible to integrate and evaluate controllers for vehicle acceleration and braking, optimized for electric motors.
+
+
+you can define your trajectory and see how your vehicle follows your road.
+ <img src="./docs/images/trajectory.png" alt="Trajectory" style="width:100%;">
+
+
+ you can see the internal performance of the lateral an logitudynal dynamics.
+  <img src="./docs/images/lateralDyna.png" alt="InternalPerformance" style="width:100%;">
+
+
 Electric Actuators: The model includes electric motors as key actuators, making it ideal for simulations focused on electric vehicles and the transition to clean technologies.
+
+
+ <img src="./docs/images/motor1.png" alt="Electric machines" style="width:50%;">
+
+you can see the currrents and voltages of the electric motors as example, the abc - dq conversion reference frame.
+
+<img src="./docs/images/abcdq_frames.png" alt="Electric machines" style="width:100%;">
+
+
+
 
 Customizable Environment: Thanks to Simulink's modularity, the model can be easily adapted to different vehicle configurations and simulation conditions.
 
