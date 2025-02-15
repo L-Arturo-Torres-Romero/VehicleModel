@@ -1,0 +1,37 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: VEHICLE DYNAMICS AND CONTROL SIMULATION SYSTEM
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Luis Arturo
+    family-names: Torres Romero
+    email: luisarturo.torres7@gmail.com
+    name-particle: LUIS ARTURO
+    affiliation: ITESO
+    orcid: 'https://orcid.org/0000-0001-7632-179X'
+identifiers:
+  - type: url
+    value: 'https://github.com/L-Arturo-Torres-Romero/VehicleModel'
+repository-code: 'https://github.com/L-Arturo-Torres-Romero/VehicleModel'
+url: 'https://github.com/L-Arturo-Torres-Romero/VehicleModel'
+abstract: >-
+  This project is a MATLAB/Simulink model that simulates the
+  longitudinal and lateral dynamics
+
+  of a vehicle, incorporating electric motors as the main
+  actuators. The goal is to provide a flexible and
+
+  modular environment for studying and developing
+  controllers for electric and autonomous vehicles.
+keywords:
+  - Vehicle dynamics
+  - lateral dynamics
+  - longitudinal dynamics
+  - electric machines
+  - autonomous driving
+license: MIT
