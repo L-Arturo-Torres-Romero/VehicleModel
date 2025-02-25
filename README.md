@@ -1,4 +1,5 @@
-Project Description.
+Project Description. You can find the [📄  Documentation (PDF)](docs/manual.pdf) (In development) here.
+
 
 This project is a MATLAB/Simulink model that simulates the longitudinal and lateral dynamics of a vehicle, incorporating electric motors as the main actuators. The goal is to provide a flexible and modular environment for studying and developing controllers for electric and autonomous vehicles.
 
