@@ -28,7 +28,7 @@ you can define your trajectory and see how your vehicle follows your road.
 Electric Actuators: The model includes electric motors as key actuators, making it ideal for simulations focused on electric vehicles and the transition to clean technologies.
 
 
- <img src="./docs/images/motor1.png" alt="Electric machines" style="width:50%;">
+ <img src="./docs/images/motor1.png" alt="Electric machines" style="width:20%;">
 
 you can see the currrents and voltages of the electric motors as example, the abc - dq conversion reference frame.
 
