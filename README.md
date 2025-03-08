@@ -18,11 +18,11 @@ Power (Longitudinal Control): It is possible to integrate and evaluate controlle
 
 
 you can define your trajectory and see how your vehicle follows your road.
- <img src="./docs/images/trajectory.png" alt="Trajectory" style="width:100%;">
+ <img src="./docs/images/trajectory.png" alt="Trajectory" style="width:50%;">
 
 
  you can see the internal performance of the lateral and longitudinal dynamics.
-  <img src="./docs/images/lateralDyna.png" alt="InternalPerformance" style="width:100%;">
+  <img src="./docs/images/lateralDyna.png" alt="InternalPerformance" style="width:50%;">
 
 
 Electric Actuators: The model includes electric motors as key actuators, making it ideal for simulations focused on electric vehicles and the transition to clean technologies.
@@ -32,7 +32,7 @@ Electric Actuators: The model includes electric motors as key actuators, making 
 
 you can see the currrents and voltages of the electric motors as example, the abc - dq conversion reference frame.
 
-<img src="./docs/images/abcdq_frames.png" alt="Electric machines" style="width:100%;">
+<img src="./docs/images/abcdq_frames.png" alt="Electric machines" style="width:50%;">
 
 
 
