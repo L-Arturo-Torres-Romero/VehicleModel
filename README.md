@@ -6,7 +6,8 @@ This project is a MATLAB/Simulink model that simulates the longitudinal and late
 
  <img src="./docs/images/lonlat2.png" alt="Vehicle Dynamics" style="width:100%;">
 
-![3D visualization of the lateral controller.]("./docs/images/LateralController3D.gif")
+
+<img src="./docs/images/LateralController3D.gif" alt="3D visualization of the lateral controller." width="500">
 
 The model offers the following features:
 
