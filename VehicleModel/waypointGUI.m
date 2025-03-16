@@ -133,8 +133,8 @@ function waypointGUI
         end
 
         racetrackwaypoints = waypoints;
-        save('waypoints.mat', 'racetrackwaypoints');
-        uialert(fig, 'Waypoints generated and saved to waypoints.mat', 'Success');
+        save('ModelData/waypoints.mat', 'racetrackwaypoints');
+        uialert(fig, 'Waypoints generated and saved to ModelData/waypoints.mat', 'Success');
     end
 end
 
