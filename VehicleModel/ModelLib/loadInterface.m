@@ -1,6 +1,6 @@
 function loadInterface()
 
-    waypointsPath = 'ModelData/waypoints.mat';;
+    waypointsPath = 'ModelData/waypoints.mat';
 
     load(waypointsPath);   
     % Verify that the matrix has at least 10 rows and three columns
@@ -9,16 +9,17 @@ function loadInterface()
         initialValues = racetrackwaypoints(3, 1:3);
         
         % Create the graphical interface
-        fig = uifigure('Name', 'Initial conditions', 'Position', [100, 100, 300, 200]);
+        fig = uifigure('Name', 'Initial Position', 'Position', [100, 100, 300, 200]);
 
+        uilabel(fig, 'Text', 'Coordinates detected in way-point file.', 'Position', [20, 160, 250, 44]);
         % Text field 1
-        uilabel(fig, 'Text', 'Initial X:', 'Position', [20, 140, 60, 22]);
-        txt1 = uieditfield(fig, 'numeric', 'Position', [100, 140, 100, 22]);
+        uilabel(fig, 'Text', 'Initial X (m):', 'Position', [20, 140, 80, 22]);
+        txt1 = uieditfield(fig, 'numeric', 'Position', [150, 140, 100, 22]);
         txt1.Value = initialValues(1);
 
         % Text field 2
-        uilabel(fig, 'Text', 'Initial Y:', 'Position', [20, 100, 60, 22]);
-        txt2 = uieditfield(fig, 'numeric', 'Position', [100, 100, 100, 22]);
+        uilabel(fig, 'Text', 'Initial Y (m):', 'Position', [20, 100, 80, 22]);
+        txt2 = uieditfield(fig, 'numeric', 'Position', [150, 100, 100, 22]);
         txt2.Value = initialValues(2);
 
         % Text field 3
@@ -29,8 +30,8 @@ function loadInterface()
         psi_des = F(1);
         psi_des = wrapTo2Pi(psi_des);
 
-        uilabel(fig, 'Text', 'Initial Psi:', 'Position', [20, 60, 60, 22]);
-        txt3 = uieditfield(fig, 'numeric', 'Position', [100, 60, 100, 22]);
+        uilabel(fig, 'Text', 'Initial Psi (rad):', 'Position', [20, 60, 90, 22]);
+        txt3 = uieditfield(fig, 'numeric', 'Position', [150, 60, 100, 22]);
         txt3.Value = psi_des;
 
         % Accept button
