@@ -1,7 +1,7 @@
 function waypointGUI
     addpath('waypointsTestGen');
     % Create the main figure
-    fig = uifigure('Position', [100, 100, 500, 300], 'Name', 'Waypoint Generator');
+    fig = uifigure('Position', [100, 100, 390, 280], 'Name', 'Waypoint Generator');
 
     % Create dropdown for selecting strategies
     lbl = uilabel(fig, 'Position', [20, 250, 200, 22], 'Text', 'Select Strategy:');
@@ -14,15 +14,15 @@ function waypointGUI
     btnRemove = uibutton(fig, 'Position', [300, 220, 70, 22], 'Text', 'Remove', 'ButtonPushedFcn', @(btn, event) removeStrategy());
 
     % Create listbox to display selected strategies
-    lblList = uilabel(fig, 'Position', [20, 200, 100, 22], 'Text', 'Selected Strategies:');
-    lb = uilistbox(fig, 'Position', [130, 100, 150, 100],'Items', {});
+    lblList = uilabel(fig, 'Position', [20, 200, 110, 22], 'Text', 'Selected Strategies:');
+    lb = uilistbox(fig, 'Position', [130, 70, 240, 130],'Items', {}); %lb = uilistbox(fig, 'Position', [130, 100, 240, 100],'Items', {});
     %lb = uilistbox(fig, 'Position', [130, 100, 150, 100]);
 
     % Create button to generate waypoints
-    btnGenerate = uibutton(fig, 'Position', [150, 50, 100, 22], 'Text', 'Generate', 'ButtonPushedFcn', @(btn, event) generateAllStrategies(lb.Items));
+    btnGenerate = uibutton(fig, 'Position', [150, 25, 100, 22], 'Text', 'Generate', 'ButtonPushedFcn', @(btn, event) generateAllStrategies(lb.Items));
 
     % Create button to view waypoints
-    btnView = uibutton(fig, 'Position', [270, 50, 100, 22], 'Text', 'View', 'ButtonPushedFcn', @(btn, event) viewWaypoints(lb.Items));
+    btnView = uibutton(fig, 'Position', [270, 25, 100, 22], 'Text', 'View', 'ButtonPushedFcn', @(btn, event) viewWaypoints(lb.Items));
 
     % function to execute when the tool closes
     function onClose(~, ~)
