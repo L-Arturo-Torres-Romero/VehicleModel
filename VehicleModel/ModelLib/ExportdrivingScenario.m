@@ -9,7 +9,7 @@ scenario = drivingScenario('SampleTime',0.1','StopTime',60);
 
 roadCenters = [waypoints, zeros(size(waypoints(:,1)))]; % Use the loaded way-points
 % Add the read center to the scenario. 
-cr = road(scenario, roadCenters, 'Lanes', lanespec(2)); % Define lanes explicitly
+cr = road(scenario, roadCenters, 'Lanes', lanespec(3)); % Define lanes explicitly
 
 % Add a vehicle.
 veh = vehicle(scenario, ClassID=1,PlotColor='red',Name='EgoVehicle');
