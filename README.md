@@ -1,4 +1,4 @@
-Project Description. You can find the [📄  Documentation (PDF)](docs/manual.pdf) (In development) here.
+Project Description. You can find the [📄  Documentation (PDF)](docs/manual.pdf) (In development) here. Try open it from Matlab online: [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=L-Arturo-Torres-Romero/VehicleModel&file=https://github.com/L-Arturo-Torres-Romero/VehicleModel/blob/master/VehicleModel/LongLatDriveline.slx)
 
 
 This project is a MATLAB/Simulink model that simulates the longitudinal and lateral dynamics of a vehicle, incorporating electric motors as the main actuators. The goal is to provide a flexible and modular environment for studying and developing controllers for electric and autonomous vehicles.
