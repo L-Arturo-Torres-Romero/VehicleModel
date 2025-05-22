@@ -1,13 +1,13 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration file="C:\E\Documents\GitHub\VehicleModel\ToolBox\Vehicle Dynamics Play Ground.prj" location="C:\E\Documents\GitHub\VehicleModel\ToolBox" name="Vehicle Dynamics Play Ground" target="target.toolbox" target-name="Package Toolbox">
+  <configuration build-checksum="2313840693" file="C:\E\Documents\GitHub\VehicleModel\ToolBox\Vehicle Dynamics Play Ground.prj" location="C:\E\Documents\GitHub\VehicleModel\ToolBox" name="Vehicle Dynamics Play Ground" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>Vehicle Dynamics Play Ground</param.appname>
     <param.authnamewatermark>Luis Arturo Torres Romero</param.authnamewatermark>
     <param.email>ng695377@iteso.mx</param.email>
     <param.company>ITESO</param.company>
     <param.summary>Vehicle Dynamics Play Ground</param.summary>
     <param.description>Vehicle Dynamics Play Ground</param.description>
-    <param.screenshot />
-    <param.version>1.0</param.version>
+    <param.screenshot>C:\E\Documents\GitHub\VehicleModel\VehicleModel\images\LongitudinalDynamic.png</param.screenshot>
+    <param.version>0.6</param.version>
     <param.output>${PROJECT_ROOT}\Vehicle Dynamics Play Ground.mltbx</param.output>
     <param.products.name />
     <param.products.id />
@@ -42,14 +42,21 @@ ToolBox
     <param.registered.apps />
     <param.docs>C:\E\Documents\GitHub\VehicleModel\info.xml</param.docs>
     <param.getting.started.guide>C:\E\Documents\GitHub\VehicleModel\doc\GettingStarted.mlx</param.getting.started.guide>
-    <param.matlabpath.excludes />
+    <param.matlabpath.excludes>
+      <item>/VehicleModel/waypointsTestGen</item>
+      <item>/VehicleModel/images</item>
+      <item>/VehicleModel</item>
+      <item>/VehicleModel/ModelLib</item>
+      <item>/VehicleModel/ModelData</item>
+      <item>/</item>
+    </param.matlabpath.excludes>
     <param.javaclasspath.excludes />
     <param.exported.on.package>false</param.exported.on.package>
     <param.required.addons />
     <param.matlab.project.id />
     <param.matlab.project.name />
-    <param.release.start />
-    <param.release.end />
+    <param.release.start>R2018a</param.release.start>
+    <param.release.end>latest</param.release.end>
     <param.release.current.only>false</param.release.current.only>
     <param.compatiblity.windows>true</param.compatiblity.windows>
     <param.compatiblity.macos>true</param.compatiblity.macos>
@@ -62,8 +69,6 @@ ToolBox
     <param.additional.sw.mac.url />
     <param.additional.sw.linux.url />
     <unset>
-      <param.screenshot />
-      <param.version />
       <param.output />
       <param.products.name />
       <param.products.id />
@@ -74,14 +79,11 @@ ToolBox
       <param.demosxml />
       <param.apps />
       <param.registered.apps />
-      <param.matlabpath.excludes />
       <param.javaclasspath.excludes />
       <param.exported.on.package />
       <param.required.addons />
       <param.matlab.project.id />
       <param.matlab.project.name />
-      <param.release.start />
-      <param.release.end />
       <param.release.current.only />
       <param.compatiblity.windows />
       <param.compatiblity.macos />
