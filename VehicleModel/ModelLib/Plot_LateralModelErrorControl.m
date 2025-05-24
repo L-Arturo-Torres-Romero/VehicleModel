@@ -3,7 +3,7 @@ set(gcf, 'Color', 'w'); % Set the figure background color to white
 P = racetrackwaypoints(:,1:2);
 plot(P(:,1),P(:,2),'r', 'LineStyle', '-');
 hold on;
-J = VehiclePose(:,1:2);
+J = out.VehiclePose(:,1:2);
 plot(J(:,1),J(:,2),'b', 'LineStyle', '--');
 hold off;
 
