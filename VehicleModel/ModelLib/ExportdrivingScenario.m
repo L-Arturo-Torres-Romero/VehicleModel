@@ -2,7 +2,7 @@ load('waypoints.mat'); % It must contain a variable with the way-point list.
 waypoints = racetrackwaypoints(:, 1:2); % Only X, Y
 velocities = racetrackwaypoints(:, 3); % Velocity on each point.
 
-realVehiclePose = VehiclePose;
+realVehiclePose = out.VehiclePose;
 
 % Create the scenario.
 scenario = drivingScenario('SampleTime',0.1','StopTime',60);
