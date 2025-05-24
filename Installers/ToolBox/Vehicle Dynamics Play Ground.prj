@@ -1,0 +1,144 @@
+<deployment-project plugin="plugin.toolbox" plugin-version="1.0">
+  <configuration build-checksum="2313840693" file="C:\E\Documents\GitHub\VehicleModel\ToolBox\Vehicle Dynamics Play Ground.prj" location="C:\E\Documents\GitHub\VehicleModel\ToolBox" name="Vehicle Dynamics Play Ground" target="target.toolbox" target-name="Package Toolbox">
+    <param.appname>Vehicle Dynamics Play Ground</param.appname>
+    <param.authnamewatermark>Luis Arturo Torres Romero</param.authnamewatermark>
+    <param.email>ng695377@iteso.mx</param.email>
+    <param.company>ITESO</param.company>
+    <param.summary>Vehicle Dynamics Play Ground</param.summary>
+    <param.description>Vehicle Dynamics Play Ground</param.description>
+    <param.screenshot>C:\E\Documents\GitHub\VehicleModel\VehicleModel\images\LongitudinalDynamic.png</param.screenshot>
+    <param.version>0.6</param.version>
+    <param.output>${PROJECT_ROOT}\Vehicle Dynamics Play Ground.mltbx</param.output>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
+    <param.platforms />
+    <param.guid>7ec9d3c9-4378-4ef0-ab87-757cf2d51c1c</param.guid>
+    <param.exclude.filters>% List files contained in your toolbox folder that you would like to exclude
+% from packaging.  Excludes should be listed relative to the toolbox folder.
+% Some examples of how to specify excludes are provided below:
+%
+% A single file in the toolbox folder:
+% .svn
+%
+% A single file in a subfolder of the toolbox folder:
+% example/.svn
+%
+% All files in a subfolder of the toolbox folder:
+.git
+.github
+ToolBox
+%
+% All files of a certain name in all subfolders of the toolbox folder:
+% **/.svn
+%
+% All files matching a pattern in all subfolders of the toolbox folder:
+% **/*.bak
+%</param.exclude.filters>
+    <param.exclude.pcodedmfiles>true</param.exclude.pcodedmfiles>
+    <param.examples />
+    <param.demosxml />
+    <param.apps />
+    <param.registered.apps />
+    <param.docs>C:\E\Documents\GitHub\VehicleModel\info.xml</param.docs>
+    <param.getting.started.guide>C:\E\Documents\GitHub\VehicleModel\doc\GettingStarted.mlx</param.getting.started.guide>
+    <param.matlabpath.excludes>
+      <item>/VehicleModel/waypointsTestGen</item>
+      <item>/VehicleModel/images</item>
+      <item>/VehicleModel</item>
+      <item>/VehicleModel/ModelLib</item>
+      <item>/VehicleModel/ModelData</item>
+      <item>/</item>
+    </param.matlabpath.excludes>
+    <param.javaclasspath.excludes />
+    <param.exported.on.package>false</param.exported.on.package>
+    <param.required.addons />
+    <param.matlab.project.id />
+    <param.matlab.project.name />
+    <param.release.start>R2018a</param.release.start>
+    <param.release.end>latest</param.release.end>
+    <param.release.current.only>false</param.release.current.only>
+    <param.compatiblity.windows>true</param.compatiblity.windows>
+    <param.compatiblity.macos>true</param.compatiblity.macos>
+    <param.compatiblity.linux>true</param.compatiblity.linux>
+    <param.compatiblity.matlabonline>true</param.compatiblity.matlabonline>
+    <param.installation.map />
+    <param.additional.sw.names />
+    <param.additional.sw.licenses />
+    <param.additional.sw.win.url />
+    <param.additional.sw.mac.url />
+    <param.additional.sw.linux.url />
+    <unset>
+      <param.output />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
+      <param.platforms />
+      <param.exclude.pcodedmfiles />
+      <param.examples />
+      <param.demosxml />
+      <param.apps />
+      <param.registered.apps />
+      <param.javaclasspath.excludes />
+      <param.exported.on.package />
+      <param.required.addons />
+      <param.matlab.project.id />
+      <param.matlab.project.name />
+      <param.release.current.only />
+      <param.compatiblity.windows />
+      <param.compatiblity.macos />
+      <param.compatiblity.linux />
+      <param.compatiblity.matlabonline />
+      <param.installation.map />
+      <param.additional.sw.names />
+      <param.additional.sw.licenses />
+      <param.additional.sw.win.url />
+      <param.additional.sw.mac.url />
+      <param.additional.sw.linux.url />
+    </unset>
+    <fileset.rootdir>
+      <file>C:\E\Documents\GitHub\VehicleModel</file>
+    </fileset.rootdir>
+    <fileset.rootfiles>
+      <file>C:\E\Documents\GitHub\VehicleModel\CITATION.cff</file>
+      <file>C:\E\Documents\GitHub\VehicleModel\doc</file>
+      <file>C:\E\Documents\GitHub\VehicleModel\docs</file>
+      <file>C:\E\Documents\GitHub\VehicleModel\info.xml</file>
+      <file>C:\E\Documents\GitHub\VehicleModel\README.md</file>
+      <file>C:\E\Documents\GitHub\VehicleModel\VehicleModel</file>
+    </fileset.rootfiles>
+    <fileset.depfun.included />
+    <fileset.depfun.excluded />
+    <fileset.package />
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}" name="Vehicle Dynamics Play Ground.mltbx" optional="false">C:\E\Documents\GitHub\VehicleModel\ToolBox\Vehicle Dynamics Play Ground.mltbx</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2024b</root>
+      <toolboxes>
+        <toolbox name="neuralnetwork" />
+      </toolboxes>
+      <toolbox>
+        <neuralnetwork>
+          <enabled>true</enabled>
+        </neuralnetwork>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
