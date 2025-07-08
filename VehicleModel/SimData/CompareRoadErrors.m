@@ -16,6 +16,16 @@ P = racetrackwaypoints(:,1:2);
 values1X = data1.ans.Data(:,1);
 values1Y = data1.ans.Data(:,2);
 
+
+idx = find(data1.ans.Time == 0);
+timePoints = data1.ans.Data(idx,:);
+for i = 1:8
+    idx = find(data1.ans.Time == ((i)*10));
+    timePoints = [timePoints;data1.ans.Data(idx,:)];
+end
+
+
+
 values2X = data2.ans.Data(:,1);
 values2Y = data2.ans.Data(:,2);
 
@@ -24,16 +34,24 @@ values3Y = data3.ans.Data(:,2);
 
 % Plot the data
 figure;
+set(gcf, 'Color', 'w'); % Set figure background to white
 hold on;
 plot(values1X, values1Y, 'r', 'LineWidth', 0.8); % Red line
 plot(values2X, values2Y, 'g-.', 'LineWidth', 0.8); % Green line
 plot(values3X, values3Y, 'b--', 'LineWidth', 0.8); % Blue line
-plot(P(:,1),P(:,2),'k','LineWidth', 1); % plot the reference
+%plot(P(:,1),P(:,2),'k','LineWidth', 1); % plot the reference
+
+
+for i = 1:8
+    plot(timePoints(i,1), timePoints(i,2), 'rd');
+end
+
+
 
 % Formatting the plot
-title('Comparison of Time Series');
-xlabel('Time');
-ylabel('Value');
-legend('Series 1', 'Series 2', 'Series 3');
+title('Comparison trajectories');
+xlabel('X axis(m)');
+ylabel('Y axis(m)');
+%legend('Alcala', 'Urbano', 'PID');
 grid on;
 hold off;
