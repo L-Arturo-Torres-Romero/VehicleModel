@@ -2,14 +2,20 @@
 function [k_idx, D] = knnsearch_lib(queryPoint, data, k)
     % Check if the Toolbox knnsearch function is available
     if exist('knnsearch', 'file') == 2
-        [k_idx, D] = knnsearch(queryPoint, data, 'K', k);
+        %[k_idx, D] = knnsearch(queryPoint, data, k);
+        [k_idx, D] = knn_custom(queryPoint, data, k);
     else
         % If not available, use custom implementation
         [k_idx, D] = knn_custom(queryPoint, data, k);
     end
 end
 
+%********* KnnSearch wrapper to use from Toolbox ****
+function [k_idx, D] = knnsearch_wrapper(queryPoint, data, k)
+    [k_idx, D] = knnsearch(queryPoint, data, 'K', k);
+end
 
+%*******************************************************
 function [k_idx, D] = knn_custom(P, PQ, k)
 % KNNSEARCH - Finds the k nearest neighbors
 %   [k_idx, D] = knnsearch(P, PQ, k) finds the k nearest neighbors in P
