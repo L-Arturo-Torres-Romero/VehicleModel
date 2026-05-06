@@ -1,0 +1,224 @@
+\documentclass[12pt,a4paper]{cibb}
+
+% Fallback definition for missing \@ordinalM
+\makeatletter
+\providecommand{\@ordinalM}[2]{#1}
+\makeatother
+
+\usepackage{subfigure,graphicx}
+\usepackage{amsmath,amsfonts,latexsym,amssymb,euscript,xr}
+\usepackage{booktabs}
+\usepackage[nodayofweek]{datetime}
+\usepackage{hyperref}
+\usepackage{fmtcount}
+\usepackage[english]{datenumber}
+\usepackage[absolute]{textpos}
+
+
+
+\usepackage[table]{xcolor}
+\usepackage{color,colortbl,tabularx}
+
+\usepackage[english]{babel}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}
+% \usepackage[pdftex]{graphicx}
+\usepackage{pifont}
+
+\def\red{\color{red}}
+\def\black{\color{black}}
+\def\blue{\color{blue}}
+\def\magenta{\color{magenta}}
+
+
+
+\definecolor{LightBlue}{rgb}{0.88,0.9,0.9}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\title{\Large $\ $\\ \bf Error Feedback Control with Ackermann Technique}
+
+\author{\large L.A. Torres-Romero$^1$}
+\address{\footnotesize $\ $\\$^1$ DESI, ITESO,
+Tlaquepaque Jalisco, Mexico. \\
+%
+%
+\bigskip
+ORCID code: 0000-0001-7632-179X.
+\bigskip
+\newline
+$^*$corresponding author: luisarturo.torres7@gmail.com
+\bigskip
+\newline
+}
+
+
+\abstract{\small (min 3 and max 5) keyword1, keyword2, keyword3, keyword4, keyword5. \normalsize
+\\[17pt]
+{\bf Abstract (max 250 words).} In this document there are the
+main guidelines for preparing your  contribution for the electronic
+proceedings of CIBB meeting.
+This document will help you to produce the PDF file of your paper.
+The paper length must be from 4 to 6 pages.
+The language used should consistently follow one of the English variants (Canadian English, British English, US American English, Australian English, etc.).
+}
+
+\begin{document}
+
+\renewcommand{\thefootnote}{}
+\footnotetext{\small{Article version: \datedate $\;$ h\currenttime  $\;$ CET}}
+
+
+\thispagestyle{myheadings}
+\pagestyle{myheadings}
+\markright{\tt Vehicle Dynamics and Control Simulation Playground}%check year
+
+
+\section{Introduction}
+\label{sec:SCIENTIFIC-BACKGROUND}
+
+In  this   document  there  are  the  guidelines   for  your  contribution
+for the electronic proceedings of the Computational Intelligence Methods for Bioinformatics and Biostatistics (CIBB) meetings. 
+In this section the authors need to write the Scientific Background or the Introduction.
+
+
+\section{Data and Methods}
+\label{sec:DATA-AND-METHODS}
+
+
+This document is  the printed version of the PDF file, and
+is formatted following the guidelines here described. On the CIBB website
+ you can download the  zipped
+archive from the CIBB conference website.
+
+
+Please note that only PDF versions of papers can be accepted, as the
+proceedings of CIBB will be produced starting  from them.
+
+
+\section{Results}
+\label{sec:RESULTS}
+
+The paper  must be formatted  single column, 12 pt,  on standard A4 paper, and its side edges should be 2.5 cm above, down, left, and right, as shown by this document. The maximum length of  the paper is 6 pages.
+
+The references   should   be   cited   in   this   way~\cite{domingos2012few,powell2020tried},   or also~\cite{vcuklina2020review,hansen2014scientific,WWW-GO}.
+
+Software code commands should be written this way: 
+\newline
+\texttt{x <- 0.5} \newline
+\texttt{y <- 0.8} \newline
+\texttt{z <- x + y} \newline
+\texttt{print(z)} \newline
+
+
+\subsection{\bf \it Tables and Figures}
+\label{sec:TABLES-AND-FIGURES}
+
+
+Tables and  figures must be placed  in the paper close  where they are
+cited.  The caption heading for a table should be placed at the top of
+the table,  as shown in~\autoref{tab:RESULTS}.  The caption heading  for a
+figure   should   be   placed   below   the  figure,   as   shown   in~\autoref{fig:CIBB-LOGO}.
+
+\begin{table}[httb!] \small
+\centering
+    \begin{tabularx}{0.35\textwidth}{ l  l  c }
+        \toprule
+          \textbf{method} & \textbf{result} & \textbf{interpretation} \\
+        \midrule
+        \rowcolor{LightBlue} aaa & 0.7 & ccc \\
+         ddd & 0.2 & zzz \\
+        \rowcolor{LightBlue}  jjj & 0.4 & ppp \\\
+         ggg & 0.5 & qqq \\
+        \bottomrule
+    \end{tabularx}
+    \caption{\textbf{Recap of the results}.
+    Example table containing results.
+    Please alternate the background colors for each row, to facilitate a clearer interpretation\label{tab:RESULTS}}
+\end{table}
+
+
+
+
+
+\subsection{Equations}
+\label{sec:EQUATIONS}
+
+
+Equations should be centered and numbered consecutively, in this way:
+
+\begin{equation}
+{\bf y}_{j} = \frac {\sum_{k=1}^{n} (u_{jk})^{m}{\bf x}_{k} }{
+\sum_{k=1}^{n} ({ u}_{jk})^{m} } \, \, \ \mbox{\hspace{.5cm}  } \forall j,
+\label{eq:FCM_YJ}
+\end{equation}
+and
+
+\begin{equation}
+u_{jk} =
+\left\{
+\begin{array}{clll}
+\left( \sum_{l=1}^{c} \left( \frac {E_{j}({\bf x}_{k})}{E_{l}({\bf x}_{k})}
+\right)^\frac{2}{m-1} \right)^{-1} & if & E_{j}({\bf x}_{k})>0 & \forall j,k \\
+1 & if & E_{j}({\bf x}_{k})=0 & (u_{lk}=0 \ \ \forall l \neq j) \\
+\end{array}
+\right.
+\label{eq:FCM_UJK}
+\end{equation}
+and referred as: ~\autoref{eq:FCM_YJ} and ~\autoref{eq:FCM_UJK}.
+
+\begin{figure}[h]
+\vspace{3mm}
+ \begin{center}
+ \includegraphics[width=0.9\textwidth]{./images/example_plot3.pdf}
+\caption{\textbf{Example figure}.
+Please generate your figure images as PDF files and include them here in the article within the text.
+We suggest you to generate your figures with the \texttt{ggplot2} package in \texttt{R} or with \texttt{Matplotlib} in \texttt{Python}.
+Regarding colors, please make sure you use a colorblind palette.
+This image was generated with \texttt{ggplot2} and then edited with LibreOffice Draw.
+\label{fig:CIBB-LOGO}}
+ \end{center}
+\vspace{-8mm}
+\end{figure}
+
+\section{Conclusion}
+\label{sec:CONCLUSIONS}
+
+
+In this section the authors write the conclusion of the paper. Since this is a short paper, please do not include more than 10 references in the bibliography.
+
+
+\section*{Conflict of interests}
+\label{sec:CONFLICT-OF-INTERESTS}
+% The authors should declare here any potential conflicts of interests.
+\blue Text hidden for anonymity reasons. \black
+
+\section*{Acknowledgments (optional)}
+\label{sec:ACKNOWLEDGMENTS}
+% The authors would like to thank XXX and YYY for their helpful feedback.
+\blue Text hidden for anonymity reasons. \black
+
+\section*{Funding (optional)}
+\label{sec:FUNDING}
+% This work was supported by the XXX agency (grant number: XXX).
+\blue Text hidden for anonymity reasons. \black
+
+\section*{Availability of data and software code (optional and strongly suggested)}
+\label{sec:AVAILABILITY}
+%Our software code is available at the following URL: XXX.
+% \newline
+% \indent Our dataset is available at the following URL: XXX.
+\blue Text hidden for anonymity reasons. \black
+
+
+\footnotesize
+\bibliographystyle{unsrt}
+\bibliography{bibliography_CIBB_file.bib} 
+\normalsize
+
+\end{document}
