@@ -41,7 +41,7 @@
   \endgroup
 }
 
-\title{\Large $\ $\\ \bf Error Feedback Control with Ackermann Technique}
+\title{\Large $\ $\\ \bf Error Feedback Control with Ackermann Technique for the Vehilce Lateral Dynamics}
 
 \author{\large L.A. Torres-Romero$^1$}
 \address{\footnotesize $\ $\\$^1$ DESI, ITESO,
@@ -58,14 +58,10 @@ $^*$corresponding author: luisarturo.torres7@gmail.com
 }
 
 
-\abstract{\small (min 3 and max 5) keyword1, keyword2, keyword3, keyword4, keyword5. \normalsize
+\abstract{\small  Ackermann, Lateral dynamics, Error feedback. \normalsize
 \\[17pt]
-{\bf Abstract (max 250 words).} In this document there are the
-main guidelines for preparing your  contribution for the electronic
-proceedings of CIBB meeting.
-This document will help you to produce the PDF file of your paper.
-The paper length must be from 4 to 6 pages.
-The language used should consistently follow one of the English variants (Canadian English, British English, US American English, Australian English, etc.).
+{\bf Abstract .} 
+This is a simple Ackermann-based error feedback implementation for lateral dynamics, that can be helpful to compare against other controllers and be useful as a reference.
 }
 
 \begin{document}
@@ -79,141 +75,153 @@ The language used should consistently follow one of the English variants (Canadi
 \markright{\tt Vehicle Dynamics and Control Simulation Playground}%check year
 
 
-\section{Introduction}
-\label{sec:SCIENTIFIC-BACKGROUND}
+\section{Introduction} \label{sec:Introduction}
 
-In  this   document  there  are  the  guidelines   for  your  contribution
-for the electronic proceedings of the Computational Intelligence Methods for Bioinformatics and Biostatistics (CIBB) meetings. 
-In this section the authors need to write the Scientific Background or the Introduction.
+Autonomous driving and advanced driver assistance systems require reliable lateral control strategies to ensure vehicle stability and accurate path tracking. Among the different control approaches available, state-feedback techniques based on pole placement provide a simple and effective solution for controller design. This work presents an error feedback controller for vehicle lateral dynamics using the Ackermann technique. The proposed implementation is intended as a straightforward reference model that can be used for educational purposes, benchmarking against more advanced controllers, and rapid simulation studies in vehicle dynamics applications.
+
+\section{Lateral Model Symbols} \label{sec:Symbols}
+
+This section describes the symbols used in equations. This is based on the lateral dynamics model described in \cite{rajamani2011vehicle}, that is a linearized model of the error respect the center of the lane of the road. For more details, you can see the lateral dynamics block documentation. The symbols are as follows:
+\begin{enumerate}
+     \item	\(V\): Velocity of center of gravity of the vehicle (C.G.).
+     \item	\(\beta\) : Slip angle. This is the angle that makes V and the longitudinal axis of the vehicle.
+     \item	\(\psi\): Heading angle (yaw angle).
+     \item	\(\gamma\): \(\psi+ \beta\), this is the angle between V and the X axis of the inertial reference frame, and it is called “the course angle”.
+     \item	\(\delta\): Front steer angle.
+     \item	\(l_f,l_r\): Distance from C to A, and C to B, respectively.Distances from the C.G. to the front and rear axis of the vehicle.
+     \item	\(L= l_f+l_r\)
+     \item	X,Y: axis of the inertial frame reference.
+     \item	\(C_{\alpha r}, C_{\alpha f}\): Cornering stiffness of rear and front wheels. The cornering stiffness is the ability of the tire to resist deformation while the vehicle is cornering.
+     \item	\(I_z\): This is the momentum of inertia of the vehicle respecting the z axis.
+     \item	\(V_x\): This is the longitudinal velocity.
+\end{enumerate}
 
 
-\section{Data and Methods}
-\label{sec:DATA-AND-METHODS}
+\section{Error Feedback (Ackermann) for Lateral Dynamics}
+\label{sec:PID4LateralDynamics}
+
+Based on the error model for the lateral dynamics described in \cite{rajamani2011vehicle} and recalling the Ackerman’s formula for the system \(\dot{\textbf{X}} =\textbf{A}\textbf{X}+\textbf{B}u\) where u would be our \(\delta\) and $\textbf{X} $ = $ [x_1\ x_2\   x_3\ x_4] $ = $ [e_1\ \dot{e}_1\ e_2\ \dot{e}_2]$ where the errors are 
+\begin{itemize}
+  \item $e_1$: lateral error.
+  \item $\dot{e}_1$: rate of lateral error.
+  \item $e_2$: yaw rate error.
+  \item $\dot{e}_2$: rate of yaw rate error.
+\end{itemize}
+And then 
+
+\begin{equation} \label{eq:MatA}
+   \textbf{A} =       \begin{bmatrix}
+                      0 & 1 & 0 & 0 \\
+                      
+                      0 & 
+                      -\frac{2C_{\alpha f}+2C_{\alpha r}}{mV_x}  & 
+                      \frac{2C_{\alpha f}+2C_{\alpha r}}{m}        & 
+                      \frac{-2C_{\alpha f}l_f+2C_{\alpha r}l_r}{mV_x} \\
+                      
+                      0 & 0  & 0 & 1 \\
+                      
+                      
+                      0 & 
+                      -\frac{2C_{\alpha f}l_f - 2C_{\alpha r}l_r}{I_zV_x} & 
+                      \frac{2C_{\alpha f}l_f  - 2C_{\alpha r}l_r}{I_z} & 
+                      -\frac{2C_{\alpha f}{l_f}^2 - 2C_{\alpha r}{l_r}^2}{I_zV_x}
+                  \end{bmatrix},
+\end{equation}
+%.............................................................................................
+\begin{equation} \label{eq:MatB1}
+      \textbf{B}_1 =       \begin{bmatrix}
+                          0 \\
+                          \frac{2C_{\alpha f}}{m} \\
+                          0 \\
+                          \frac{2C_{\alpha f}l_f}{I_z} 
+                         \end{bmatrix},
+\end{equation}
+%.............................................................................................  
+\begin{equation} \label{eq:MatB2}
+      \textbf{B}_2 =       \begin{bmatrix}
+                          0 \\
+                          -\frac{2C_{\alpha f}l_f -2C_{\alpha r}l_r}{mV_x}-V_x \\
+                          0 \\
+                          -\frac{2C_{\alpha f}{l_f}^2 - 2C_{\alpha r}{l_r}^2}{I_zV_x}
+                          \end{bmatrix},
+\end{equation}
+%.............................................................................................
+\begin{equation} \label{eq:MatB3}
+         \textbf{B}_3 =       \begin{bmatrix}
+                             0 \\
+                             g \\
+                             0 \\
+                             0 
+                             \end{bmatrix},
+\end{equation}
+%.............................................................................................
+where our controller is defined as:
+\begin{equation} \label{eq:Uctrl}
+u = -\textbf{Kx}
+\end{equation}
+%.............................................................................................
+where the gain \textbf{K} is obtained using the Ackermann’s formula as follows:
+\begin{equation} \label{eq:Uctrl_}
+\textbf{K} = [0 \; 0\; ...\; 0 \; 1][\textbf{B}|\textbf{AB}|...|\textbf{A}^{n-1}\textbf{B}]^{-1}\textbf{H}(\textbf{A})
+\end{equation}
+%.............................................................................................
+And we call the controllability matrix \textbf{Mc} to \([\textbf{B}|\textbf{AB}|...|\textbf{A}^{n-1}\textbf{B}]\). Having the poles \{\(p_{d1} \; p_{d2} \; p_{d3}\;\cdot\cdot\cdot\;p_{dn}\)\} and \textbf{I} is the identity matrix:
+%.............................................................................................
+\begin{equation} \label{eq:HA}
+\textbf{H(A)} = (\textbf{A}-p_{d1}\textbf{I})(\textbf{A}-p_{d2}\textbf{I})\cdot\cdot\cdot(\textbf{A}-p_{dn}\textbf{I})
+\end{equation}
+%.............................................................................................
+
+In our case, we make \textbf{B = B1} (ignoring \textbf{B2}, and \textbf{B3} for simplicity) from  (\ref{eq:MatA}) to  (\ref{eq:MatB3}) and the poles for the simulation \(p_d=[-5-3i -5+3i-7 -10]\).
+Using Fig. \ref{eq:MatA} and Fig. \ref{eq:MatB1}
 
 
-This document is  the printed version of the PDF file, and
-is formatted following the guidelines here described. On the CIBB website
- you can download the  zipped
-archive from the CIBB conference website.
+\begin{equation} \label{eq:Mc1}
+\textbf{Mc} = [\textbf{B}_1 \; \textbf{AB}_1 \; \textbf{A}^2\textbf{B}_1 \; \textbf{A}^3\textbf{B}_1]
+\end{equation}
+%.............................................................................................
+\begin{equation} \label{eq:HA1}
+\textbf{H(A)} = (\textbf{A}-p_{d1}\textbf{I})(\textbf{A}-p_{d2}\textbf{I})(\textbf{A}-p_{d3}\textbf{I})(\textbf{A}-p_{d4}\textbf{I})
+\end{equation}
 
 
-Please note that only PDF versions of papers can be accepted, as the
-proceedings of CIBB will be produced starting  from them.
+Since the rank of the matrix \textbf{Mc}  (\ref{eq:Mc1}) is the same as the quantity of poles, then this matrix is invertible or, in other words, our system is controllable. Hence, the control gain \textbf{K}, is obtained in the form:
+
+\begin{equation} \label{eq:K1}
+\textbf{K} = [0 \; 0 \; 0 \; 1]\textbf{Mc}^{-1}\textbf{H(A)}
+\end{equation}
+%.............................................................................................
+The Matlab Block with the interface is shown in Fig. \ref{fig:AckermanCtrlBlock}.
+
+
+
+\section{Error Feedback (Ackermann) Simulink Block}
+\label{sec:Simulink}
+
+The implementation of the Ackermann controller is done in a Simulink block, that can be used as a reference for other implementations. The block has the following interface:
+\begin{itemize}
+  \item \textbf{Input 1}: \textbf{E}, The state vector \textbf{X} = $[e_1\ \dot{e}_1\ e_2\ \dot{e}_2]$ that contains the lateral error, the rate of lateral error, the yaw rate error, and the rate of yaw rate error, respectively.
+  \item  \textbf{Input 2}: \textbf{Vx}, The longitudinal velocity of the vehicle, that is used to compute the matrices \textbf{A} and \textbf{B} of the system.
+  \item \textbf{Output}: The control law \textbf{u} as calculated in (\ref{eq:Uctrl}).
+\end{itemize}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.4\textwidth]{./images/AckermannBlock.png}
+	\caption{Ackermann controller block.}
+	\label{fig:AckermanCtrlBlock}
+\end{figure}
 
 
 \section{Results}
 \label{sec:RESULTS}
 
-The paper  must be formatted  single column, 12 pt,  on standard A4 paper, and its side edges should be 2.5 cm above, down, left, and right, as shown by this document. The maximum length of  the paper is 6 pages.
-
-The references   should   be   cited   in   this   way~\cite{domingos2012few,powell2020tried},   or also~\cite{vcuklina2020review,hansen2014scientific,WWW-GO}.
-
-Software code commands should be written this way: 
-\newline
-\texttt{x <- 0.5} \newline
-\texttt{y <- 0.8} \newline
-\texttt{z <- x + y} \newline
-\texttt{print(z)} \newline
-
-
-\subsection{\bf \it Tables and Figures}
-\label{sec:TABLES-AND-FIGURES}
-
-
-Tables and  figures must be placed  in the paper close  where they are
-cited.  The caption heading for a table should be placed at the top of
-the table,  as shown in~\autoref{tab:RESULTS}.  The caption heading  for a
-figure   should   be   placed   below   the  figure,   as   shown   in~\autoref{fig:CIBB-LOGO}.
-
-\begin{table}[httb!] \small
-\centering
-    \begin{tabularx}{0.35\textwidth}{ l  l  c }
-        \toprule
-          \textbf{method} & \textbf{result} & \textbf{interpretation} \\
-        \midrule
-        \rowcolor{LightBlue} aaa & 0.7 & ccc \\
-         ddd & 0.2 & zzz \\
-        \rowcolor{LightBlue}  jjj & 0.4 & ppp \\\
-         ggg & 0.5 & qqq \\
-        \bottomrule
-    \end{tabularx}
-    \caption{\textbf{Recap of the results}.
-    Example table containing results.
-    Please alternate the background colors for each row, to facilitate a clearer interpretation\label{tab:RESULTS}}
-\end{table}
-
-
-
-
-
-\subsection{Equations}
-\label{sec:EQUATIONS}
-
-
-Equations should be centered and numbered consecutively, in this way:
-
-\begin{equation}
-{\bf y}_{j} = \frac {\sum_{k=1}^{n} (u_{jk})^{m}{\bf x}_{k} }{
-\sum_{k=1}^{n} ({ u}_{jk})^{m} } \, \, \ \mbox{\hspace{.5cm}  } \forall j,
-\label{eq:FCM_YJ}
-\end{equation}
-and
-
-\begin{equation}
-u_{jk} =
-\left\{
-\begin{array}{clll}
-\left( \sum_{l=1}^{c} \left( \frac {E_{j}({\bf x}_{k})}{E_{l}({\bf x}_{k})}
-\right)^\frac{2}{m-1} \right)^{-1} & if & E_{j}({\bf x}_{k})>0 & \forall j,k \\
-1 & if & E_{j}({\bf x}_{k})=0 & (u_{lk}=0 \ \ \forall l \neq j) \\
-\end{array}
-\right.
-\label{eq:FCM_UJK}
-\end{equation}
-and referred as: ~\autoref{eq:FCM_YJ} and ~\autoref{eq:FCM_UJK}.
-
-\begin{figure}[h]
-\vspace{3mm}
- \begin{center}
- \includegraphics[width=0.9\textwidth]{./images/example_plot3.pdf}
-\caption{\textbf{Example figure}.
-Please generate your figure images as PDF files and include them here in the article within the text.
-We suggest you to generate your figures with the \texttt{ggplot2} package in \texttt{R} or with \texttt{Matplotlib} in \texttt{Python}.
-Regarding colors, please make sure you use a colorblind palette.
-This image was generated with \texttt{ggplot2} and then edited with LibreOffice Draw.
-\label{fig:CIBB-LOGO}}
- \end{center}
-\vspace{-8mm}
-\end{figure}
+TBD
 
 \section{Conclusion}
 \label{sec:CONCLUSIONS}
 
-
-In this section the authors write the conclusion of the paper. Since this is a short paper, please do not include more than 10 references in the bibliography.
-
-
-\section*{Conflict of interests}
-\label{sec:CONFLICT-OF-INTERESTS}
-% The authors should declare here any potential conflicts of interests.
-\blue Text hidden for anonymity reasons. \black
-
-\section*{Acknowledgments (optional)}
-\label{sec:ACKNOWLEDGMENTS}
-% The authors would like to thank XXX and YYY for their helpful feedback.
-\blue Text hidden for anonymity reasons. \black
-
-\section*{Funding (optional)}
-\label{sec:FUNDING}
-% This work was supported by the XXX agency (grant number: XXX).
-\blue Text hidden for anonymity reasons. \black
-
-\section*{Availability of data and software code (optional and strongly suggested)}
-\label{sec:AVAILABILITY}
-%Our software code is available at the following URL: XXX.
-% \newline
-% \indent Our dataset is available at the following URL: XXX.
-\blue Text hidden for anonymity reasons. \black
+TBD
 
 
 \footnotesize
