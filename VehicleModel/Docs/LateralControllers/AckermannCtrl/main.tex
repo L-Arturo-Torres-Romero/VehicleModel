@@ -83,17 +83,18 @@ Autonomous driving and advanced driver assistance systems require reliable later
 
 This section describes the symbols used in equations. This is based on the lateral dynamics model described in \cite{rajamani2011vehicle}, that is a linearized model of the error respect the center of the lane of the road. For more details, you can see the lateral dynamics block documentation. The symbols are as follows:
 \begin{enumerate}
-     \item	\(V\): Velocity of center of gravity of the vehicle (C.G.).
+     \item	\(V\): Velocity of the vehicle.
+     \item	\(V_x\): This is the longitudinal velocity.
      \item	\(\beta\) : Slip angle. This is the angle that makes V and the longitudinal axis of the vehicle.
      \item	\(\psi\): Heading angle (yaw angle).
      \item	\(\gamma\): \(\psi+ \beta\), this is the angle between V and the X axis of the inertial reference frame, and it is called “the course angle”.
      \item	\(\delta\): Front steer angle.
-     \item	\(l_f,l_r\): Distance from C to A, and C to B, respectively.Distances from the C.G. to the front and rear axis of the vehicle.
+     \item	\(l_f,l_r\): Distances from the center of gravity to the front and rear axis of the vehicle.
      \item	\(L= l_f+l_r\)
-     \item	X,Y: axis of the inertial frame reference.
      \item	\(C_{\alpha r}, C_{\alpha f}\): Cornering stiffness of rear and front wheels. The cornering stiffness is the ability of the tire to resist deformation while the vehicle is cornering.
      \item	\(I_z\): This is the momentum of inertia of the vehicle respecting the z axis.
-     \item	\(V_x\): This is the longitudinal velocity.
+     \item   \(m\): Mass of the vehicle.
+     \item  \(g\): Gravitational acceleration.
 \end{enumerate}
 
 
